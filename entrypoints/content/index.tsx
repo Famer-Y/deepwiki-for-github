@@ -33,11 +33,8 @@ function createUi(ctx: ContentScriptContext) {
             const app = document.createElement('div');
             container.append(app);
             const root = ReactDOM.createRoot(app);
-            const portalTarget = shadow.querySelector('body')!;
             root.render(
-                // <Providers portalTarget={portalTarget}>
-                    <App  />
-                // </Providers>
+                <App  />
             );
             return root;
         },
