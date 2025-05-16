@@ -8,7 +8,11 @@ export default defineConfig({
   manifest: {
     // default_locale: 'en',
     permissions: [
-      "activeTab", "storage", "scripting", "sidePanel"
+      "activeTab",
+      "storage",
+      'unlimitedStorage',
+      "scripting",
+      "sidePanel"
     ],
     "side_panel": {
       "default_path": "sidepanel.html"
