@@ -1,6 +1,3 @@
-
-// import { URL } from "url";
-
 import { sendMessage } from "@/lib/utils";
 
 function App() {
