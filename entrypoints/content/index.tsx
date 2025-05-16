@@ -9,7 +9,7 @@ import App from "./App";
 
 
 export default defineContentScript({
-    matches: ["*://*/*"],
+    matches: ["*://github.com/*"],
     cssInjectionMode: "ui",
 
     async main(ctx) {
