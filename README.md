@@ -67,6 +67,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-[MIT](LICENSE)
+`deepwiki for github` are authored by Famer-Y and are licensed under the [Apache License, Version 2.0](/LICENSE).
 
 
