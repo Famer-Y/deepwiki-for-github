@@ -1,10 +1,20 @@
-import { onMessage } from "@/lib/utils";
+
+import {parse, UrlWithParsedQuery} from 'url';
+
 
 function App() {
 
-  useEffect(() => {
+const [parsedUrl, setParsedUrl] = useState<UrlWithParsedQuery | null>(null);
 
-    const iframe = document.getElementById('inlineFrameExample');
+  useEffect(() => {
+    (async () => {
+      const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+      if (tabs.length > 0) {
+        const {url = ''} = tabs[0] ?? {}
+        setParsedUrl(parse(url));
+      }
+    })();
+    const iframe = document.getElementById('deepwiki-sidepanel');
     if (iframe) {
       iframe.style.width = window.innerWidth + 'px';
       iframe.style.height = window.innerHeight + 'px';
@@ -15,19 +25,18 @@ function App() {
         iframe.style.height = window.innerHeight + 'px';
       }
     };
-    window.onload = function () {
-      if (iframe) {
-        iframe.style.width = window.innerWidth + 'px';
-        iframe.style.height = window.innerHeight + 'px';
-      }
-    };
-  
   }, []);
 
   return (
     <>
-      <iframe id="inlineFrameExample" title="Inline Frame Example" style={{ width: "100%", minHeight: "auto" }}
-        src="https://deepwiki.com/PostHog/posthog-js-lite">
+      <iframe
+        id="deepwiki-sidepanel"
+        title="deepwiki-sidepanel"
+        style={{
+          width: "100%",
+          minHeight: "auto"
+        }}
+        src={`https://deepwiki.com/${parsedUrl?.pathname}`}>
       </iframe>
     </>
   );
