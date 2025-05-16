@@ -1,12 +1,14 @@
 import { onMessage } from "@/lib/utils";
-onMessage('sidePanel:close', () => {
-  window.close();
-});
+
 function App() {
 
   useEffect(() => {
 
     const iframe = document.getElementById('inlineFrameExample');
+    if (iframe) {
+      iframe.style.width = window.innerWidth + 'px';
+      iframe.style.height = window.innerHeight + 'px';
+    }
     window.onresize = function () {
       if (iframe) {
         iframe.style.width = window.innerWidth + 'px';
