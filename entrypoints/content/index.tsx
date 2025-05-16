@@ -22,7 +22,7 @@ export default defineContentScript({
 function createUi(ctx: ContentScriptContext) {
 
     return createShadowRootUi(ctx, {
-        name: "fractal-cs-ext",
+        name: "deepwiki-cs-ext",
         mode: "closed",
         position: "overlay",
         zIndex: 2147483647,
