@@ -13,7 +13,7 @@ A browser extension that integrates DeepWiki with GitHub repositories for enhanc
 
 ### From Browser Extension Store
 
-- Chrome/Edge: Coming soon
+- Chrome/Edge: [DeepWiki for GitHub](https://chromewebstore.google.com/detail/deepwiki-for-github/fmpkkcnafhhkllnccpgebapehaepmodn)
 - Firefox: Coming soon
 
 ### Development Setup
