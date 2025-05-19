@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import getRepoUrl from "@/lib/getRepoUrl";
 
 import '@/styles/global.css';
+import { onMessage } from "@/lib/utils";
 
 function App() {
 
@@ -21,12 +22,8 @@ function App() {
       }
     })();
 
-    browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-      console.log(tabId, changeInfo, tab);
-      const { url = '' } = { ...tab };
-      if (url) {
-        setWikiUrl(getRepoUrl(url));
-      }
+    onMessage('sidePanel:setUrl', ({ data: { url } }) => {
+      setWikiUrl(url);
     });
   }, []);
 
