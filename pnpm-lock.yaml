@@ -35,6 +35,9 @@ importers:
       lucide-react:
         specifier: ^0.510.0
         version: 0.510.0(react@19.1.0)
+      parse-github-url:
+        specifier: ^1.0.3
+        version: 1.0.3
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -1804,6 +1807,11 @@ packages:
 
   pako@1.0.11:
     resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
+
+  parse-github-url@1.0.3:
+    resolution: {integrity: sha512-tfalY5/4SqGaV/GIGzWyHnFjlpTPTNpENR9Ea2lLldSJ8EWXMsvacWucqY3m3I4YPtas15IxTLQVQ5NSYXPrww==}
+    engines: {node: '>= 0.10'}
+    hasBin: true
 
   parse-json@7.1.1:
     resolution: {integrity: sha512-SgOTCX/EZXtZxBE5eJ97P4yGM5n37BwRU+YMsH4vNzFqJV/oWFXXCmwFlgWUM4PrakybVOueJJ6pwHqSVhTFDw==}
@@ -4063,6 +4071,8 @@ snapshots:
       semver: 7.7.2
 
   pako@1.0.11: {}
+
+  parse-github-url@1.0.3: {}
 
   parse-json@7.1.1:
     dependencies:
