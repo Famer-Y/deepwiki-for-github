@@ -1,5 +1,3 @@
-import getRepoUrl from "@/lib/getRepoUrl";
-
 import { sendMessage } from "@/lib/utils";
 
 browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
@@ -7,7 +5,7 @@ browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     const { url = '' } = { ...tab };
     if (url) {
         try {
-           await sendMessage('sidePanel:setUrl', { url: getRepoUrl(url) });
+           await sendMessage('sidePanel:setUrl', { url });
         } catch (error) {
             // console.error(error);
         }

@@ -23,7 +23,7 @@ function App() {
     })();
 
     onMessage('sidePanel:setUrl', ({ data: { url } }) => {
-      setWikiUrl(url);
+      setWikiUrl(getRepoUrl(url));
     });
   }, []);
 
