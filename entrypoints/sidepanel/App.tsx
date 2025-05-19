@@ -1,5 +1,7 @@
 import { sendMessage } from "@/lib/utils";
 
+import '@/styles/global.css';
+
 function App() {
 
   const [parsedUrl, setParsedUrl] = useState<URL | null>(null);
@@ -22,20 +24,6 @@ function App() {
 
   }, []);
 
-  useEffect(() => {
-    const iframe = document.getElementById('deepwiki-sidepanel');
-    if (iframe) {
-      iframe.style.width = window.innerWidth + 'px';
-      iframe.style.height = window.innerHeight + 'px';
-    }
-    window.onresize = function () {
-      if (iframe) {
-        iframe.style.width = window.innerWidth + 'px';
-        iframe.style.height = window.innerHeight + 'px';
-      }
-    };
-  }, [parsedUrl]);
-
   return (
     <>
       {parsedUrl && <iframe
@@ -43,7 +31,9 @@ function App() {
         title="deepwiki-sidepanel"
         style={{
           width: "100%",
-          minHeight: "auto"
+          height: "100%",
+          border: "none",
+          borderRadius: "1px",
         }}
         src={`https://deepwiki.com/${parsedUrl?.pathname}`}>
       </iframe>}

@@ -6,6 +6,10 @@ import.meta.glob('./messaging/**/*.{ts,js}', { eager: true });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <div
+      className='flex flex-col items-center justify-center p-[8px] w-full h-lvh'
+    >
+      <App />
+    </div>
   </React.StrictMode>,
 );
