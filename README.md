@@ -20,8 +20,8 @@ A browser extension that integrates DeepWiki with GitHub repositories for enhanc
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/deepwiki.git
-   cd deepwiki
+   git clone https://github.com/Famer-Y/deepwiki-for-github.git
+   cd deepwiki-for-github
    ```
 
 2. Install dependencies:
