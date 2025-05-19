@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import { sendMessage } from "@/lib/utils";
 
 import '@/styles/global.css';

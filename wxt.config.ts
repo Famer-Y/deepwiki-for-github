@@ -7,8 +7,9 @@ export default defineConfig({
   modules: ['@wxt-dev/module-react'],
   manifest: {
     // default_locale: 'en',
+    name: "DeepWiki X GitHub",
     permissions: [
-      "activeTab",
+      "tabs",
       "storage",
       'unlimitedStorage',
       "scripting",
