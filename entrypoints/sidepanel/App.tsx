@@ -22,8 +22,18 @@ function App() {
       }
     })();
 
-    onMessage('sidePanel:setUrl', ({ data: { url } }) => {
-      setWikiUrl(getRepoUrl(url));
+    onMessage('sidePanel:setTab', async ({ data: { tab } }) => {
+      const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+      if (tabs.length < 1) {
+        return;
+      }
+      const [currentTab = null] = tabs;
+      if (!currentTab) {
+        return;
+      }
+      if (currentTab.id === tab.id) {
+        setWikiUrl(getRepoUrl(tab.url));
+      }
     });
   }, []);
 

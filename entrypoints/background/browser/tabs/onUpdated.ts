@@ -5,7 +5,7 @@ browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     const { url = '' } = { ...tab };
     if (url) {
         try {
-           await sendMessage('sidePanel:setUrl', { url });
+           await sendMessage('sidePanel:setTab', { tab });
         } catch (error) {
             // console.error(error);
         }

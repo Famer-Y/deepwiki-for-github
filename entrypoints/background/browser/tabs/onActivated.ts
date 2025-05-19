@@ -6,7 +6,7 @@ browser.tabs.onActivated.addListener(async ({ tabId }) => {
     const { url = '' } = { ...tab };
     if (url) {
         try {
-            await sendMessage('sidePanel:setUrl', { url });
+            await sendMessage('sidePanel:setTab', { tab });
         } catch (error) {
             // console.error(error);
         }
