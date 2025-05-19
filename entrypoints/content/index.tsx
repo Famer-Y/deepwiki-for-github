@@ -13,7 +13,6 @@ export default defineContentScript({
     cssInjectionMode: "ui",
 
     async main(ctx) {
-        import.meta.glob('./messaging/**/*.{ts,js}', { eager: true });
         console.log("content script loaded 1");
         const ui = await createUi(ctx);
         ui.mount();

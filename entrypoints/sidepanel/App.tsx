@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-import { sendMessage } from "@/lib/utils";
+import getRepoUrl from "@/lib/getRepoUrl";
 
 import '@/styles/global.css';
 
 function App() {
 
-  const [parsedUrl, setParsedUrl] = useState<URL | null>(null);
+  const [wikiUrl, setWikiUrl] = useState<string>('https://deepwiki.com');
 
   useEffect(() => {
     (async () => {
@@ -14,30 +14,34 @@ function App() {
       if (tabs.length < 1) {
         return;
       }
-      const { id = 0 } = tabs[0] ?? {}
-      if (id === 0) {
-        return;
+      const [tab = {}] = tabs;
+      const { url = '' } = { ...tab };
+      if (url) {
+        setWikiUrl(getRepoUrl(url));
       }
-      const url = await sendMessage('sidePanel:getUrl', {}, { tabId: id });
-      console.log(url);
-      setParsedUrl(new URL(url));
-
     })();
 
+    browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+      console.log(tabId, changeInfo, tab);
+      const { url = '' } = { ...tab };
+      if (url) {
+        setWikiUrl(getRepoUrl(url));
+      }
+    });
   }, []);
 
   return (
     <>
-      {parsedUrl && <iframe
+      {wikiUrl && <iframe
         id="deepwiki-sidepanel"
         title="deepwiki-sidepanel"
         style={{
           width: "100%",
           height: "100%",
           border: "none",
-          borderRadius: "1px",
+          borderRadius: "none",
         }}
-        src={`https://deepwiki.com/${parsedUrl?.pathname}`}>
+        src={wikiUrl}>
       </iframe>}
     </>
   );
