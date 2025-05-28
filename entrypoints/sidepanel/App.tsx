@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+  
+import { BeatLoader } from "react-spinners";
 
 import getRepoUrl from "@/lib/getRepoUrl";
 
@@ -8,6 +10,7 @@ import { onMessage } from "@/lib/utils";
 function App() {
 
   const [wikiUrl, setWikiUrl] = useState<string>('https://deepwiki.com');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -39,17 +42,25 @@ function App() {
 
   return (
     <>
-      {wikiUrl && <iframe
-        id="deepwiki-sidepanel"
-        title="deepwiki-sidepanel"
-        style={{
-          width: "100%",
-          height: "100%",
-          border: "none",
-          borderRadius: "none",
-        }}
-        src={wikiUrl}>
-      </iframe>}
+      {isLoading &&
+        <div className="h-full w-full flex items-center justify-center">
+          <BeatLoader color="#000" />
+        </div>}
+      {wikiUrl &&
+        <iframe
+          id="deepwiki-sidepanel"
+          title="deepwiki-sidepanel"
+          style={{
+            width: "100%",
+            height: "100%",
+            border: "none",
+            borderRadius: "none",
+          }}
+          onLoad={() => {
+            setIsLoading(false);
+          }}
+          src={wikiUrl}>
+        </iframe>}
     </>
   );
 }
