@@ -105,14 +105,12 @@ export default function App() {
                                         `}
                                     />
                                     
-                                    {/* 状态指示器 */}
                                     {isOpen && (
                                         <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full border border-white dark:border-gray-800" />
                                     )}
                                 </CardContent>
                             </Card>
                             
-                            {/* 简洁工具提示 */}
                             <div className={`
                                 absolute -top-10 left-1/2 transform -translate-x-1/2
                                 px-2 py-1 bg-gray-900 dark:bg-gray-100 

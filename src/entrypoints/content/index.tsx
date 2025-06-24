@@ -10,10 +10,16 @@ import App from "./App";
 
 export default defineContentScript({
     matches: ["*://github.com/*"],
+    // matches: ['<all_urls>'],
     cssInjectionMode: "ui",
+    registration: 'runtime',
 
     async main(ctx) {
-        console.log("content script loaded 1");
+        onMessage('content:is_loaded', () => {
+            return 'ok';
+        });
+
+        console.log('main.tsx loaded');
         const ui = await createUi(ctx);
         ui.mount();
     },
