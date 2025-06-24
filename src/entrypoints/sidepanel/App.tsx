@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-  
+
 import { BeatLoader } from "react-spinners";
 
-import getRepoUrl from "@/src/lib/getRepoUrl";
+import getRepoUrl from "@/lib/getRepoUrl";
 
 import '@/styles/global.css';
-import { onMessage } from "@/src/lib/utils";
+import { onMessage } from "@/lib/utils";
 
 function App() {
 
