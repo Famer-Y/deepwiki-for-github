@@ -1,4 +1,5 @@
 import { useState, Fragment, useEffect } from "react";
+import { TbLayoutGridAdd } from "react-icons/tb";
 
 import { restrictToWindowEdges } from '@dnd-kit/modifiers';
 
@@ -95,22 +96,14 @@ export default function App() {
                                 onClick={handleClick}
                             >
                                 <CardContent className="p-0 w-full h-full flex items-center justify-center relative">
-                                    <img 
-                                        src={logo} 
-                                        alt="DeepWiki" 
-                                        className={`
-                                            w-6 h-6 object-contain
-                                            transition-transform duration-150 ease-out
-                                            ${isPressed ? 'scale-90' : ''}
-                                        `}
-                                    />
+                                    <TbLayoutGridAdd className="w-6 h-6" />
                                     
                                     {isOpen && (
                                         <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full border border-white dark:border-gray-800" />
                                     )}
                                 </CardContent>
                             </Card>
-                            
+
                             <div className={`
                                 absolute -top-10 left-1/2 transform -translate-x-1/2
                                 px-2 py-1 bg-gray-900 dark:bg-gray-100 
